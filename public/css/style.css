@@ -1,76 +1,229 @@
 /* ============================================
    public/css/style.css
-   Shared styles used across every page
-   (landing page, dashboard, etc.)
+   Shared styles used across every page.
    ============================================ */
 
-/* Reset some default browser spacing so pages look consistent */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #eff2f6;
+  --surface: #ffffff;
+  --ink: #161b22;
+  --ink-soft: #5b6472;
+  --line: #d8dee6;
+  --accent: #0f6d5a;
+  --accent-dark: #0b4f41;
+  --gold: #d9a441;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f6f8;
-  color: #222;
-  line-height: 1.5;
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Simple top navigation bar */
-.navbar {
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Top navigation ---------- */
+.topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2c3e50;
-  padding: 16px 32px;
+  padding: 22px 40px;
 }
 
-.navbar a {
-  color: white;
+.topbar .brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
   text-decoration: none;
-  margin-left: 16px;
-  font-weight: bold;
+  color: var(--ink);
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
-/* Center content in the middle of the page */
-.container {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 0 20px;
-  text-align: center;
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  transition: color 0.15s ease;
 }
 
-.container h1 {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
+.nav-links a:hover { color: var(--ink); }
+
+.nav-links a.nav-cta {
+  background: var(--ink);
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
 }
 
-.container p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 24px;
-}
+.nav-links a.nav-cta:hover { background: var(--accent-dark); }
 
-/* Reusable button style */
+/* ---------- Buttons (shared) ---------- */
 .btn {
   display: inline-block;
-  background-color: #2c3e50;
-  color: white;
-  padding: 10px 24px;
-  border-radius: 6px;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.98rem;
   text-decoration: none;
-  font-weight: bold;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  margin: 6px;
+  font-family: var(--font-body);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
-.btn:hover {
-  background-color: #1a242f;
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-dark); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn-ghost:hover { border-color: var(--ink); }
+
+/* ---------- Landing hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 48px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 40px 100px;
+  min-height: calc(100vh - 90px);
+}
+
+.hero-copy h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  font-weight: 500;
+  line-height: 1.15;
+  max-width: 14ch;
+  margin-bottom: 22px;
+}
+
+.hero-sub {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Ledger graphic (CSS only, no images) ---------- */
+.ledger {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ledger-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ledger-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  flex-shrink: 0;
+}
+
+.ledger-bar {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--bg);
+  flex-grow: 1;
+}
+
+.ledger-row:nth-child(1) .ledger-bar { max-width: 78%; }
+.ledger-row:nth-child(2) .ledger-bar { max-width: 55%; }
+.ledger-row:nth-child(3) .ledger-bar { max-width: 88%; }
+.ledger-row:nth-child(5) .ledger-bar { max-width: 62%; }
+
+.ledger-row.active .ledger-dot {
+  background: var(--accent);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+.ledger-row.active .ledger-bar { background: rgba(15, 109, 90, 0.12); }
+
+.ledger-row.gold .ledger-dot { background: var(--gold); }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(15, 109, 90, 0.35); }
+  50% { box-shadow: 0 0 0 6px rgba(15, 109, 90, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ledger-row.active .ledger-dot { animation: none; }
+}
+
+/* ---------- Dashboard ---------- */
+.dash-wrap {
+  max-width: 680px;
+  margin: 72px auto;
+  padding: 0 24px;
+}
+
+.dash-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+}
+
+.dash-panel h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.dash-panel p {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+  }
+  .topbar { padding: 18px 24px; }
 }

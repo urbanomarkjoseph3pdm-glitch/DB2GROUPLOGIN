@@ -2,38 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register - MyApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account - MyApp</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/auth.css">
 </head>
 <body>
 
-  <div class="navbar">
-    <strong><a href="/index.html" style="color:white;text-decoration:none;">MyApp</a></strong>
-    <div>
-      <a href="/login.html">Login</a>
+  <div class="auth-shell">
+
+    <div class="auth-side">
+      <a href="/index.html" class="brand">MyApp</a>
+      <blockquote>"One account. Nothing to remember but a password."</blockquote>
+      <p class="auth-side-foot">Already registered? <a href="/login.html" style="color:#fff;">Log in</a> instead.</p>
     </div>
-  </div>
 
-  <div class="auth-box">
-    <h2>Create Account</h2>
+    <div class="auth-main">
+      <div class="auth-box">
+        <h2>Create your account</h2>
 
-    <form id="registerForm">
-      <label for="username">Username</label>
-      <input type="text" id="username" required>
+        <form id="registerForm">
+          <label for="username">Username</label>
+          <input type="text" id="username" required>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" required minlength="6">
+          <label for="password">Password</label>
+          <input type="password" id="password" required minlength="6">
 
-      <button type="submit">Register</button>
-    </form>
+          <button type="submit">Create account</button>
+        </form>
 
-    <p id="message" class="message"></p>
+        <p id="message" class="message"></p>
 
-    <p class="switch-link">Already have an account? <a href="/login.html">Log in</a></p>
+        <p class="switch-link">Already have an account? <a href="/login.html">Log in</a></p>
+      </div>
+    </div>
+
   </div>
 
   <script src="/js/auth.js"></script>

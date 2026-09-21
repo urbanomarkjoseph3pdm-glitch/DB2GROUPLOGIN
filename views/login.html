@@ -2,38 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login - MyApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in - MyApp</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/auth.css">
 </head>
 <body>
 
-  <div class="navbar">
-    <strong><a href="/index.html" style="color:white;text-decoration:none;">MyApp</a></strong>
-    <div>
-      <a href="/register.html">Register</a>
+  <div class="auth-shell">
+
+    <div class="auth-side">
+      <a href="/index.html" class="brand">MyApp</a>
+      <blockquote>"Sign back in and everything is exactly where you left it."</blockquote>
+      <p class="auth-side-foot">New here? <a href="/register.html" style="color:#fff;">Create an account</a> instead.</p>
     </div>
-  </div>
 
-  <div class="auth-box">
-    <h2>Log In</h2>
+    <div class="auth-main">
+      <div class="auth-box">
+        <h2>Welcome back</h2>
 
-    <!-- This form has NO "action" attribute because we submit it
-         with JavaScript (fetch) instead of a normal page reload -->
-    <form id="loginForm">
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
+        <!-- This form has NO "action" attribute because we submit it
+             with JavaScript (fetch) instead of a normal page reload -->
+        <form id="loginForm">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" required>
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
 
-      <button type="submit">Log In</button>
-    </form>
+          <button type="submit">Log in</button>
+        </form>
 
-    <!-- Success/error messages get printed here by our JS file -->
-    <p id="message" class="message"></p>
+        <!-- Success/error messages get printed here by our JS file -->
+        <p id="message" class="message"></p>
 
-    <p class="switch-link">Don't have an account? <a href="/register.html">Register</a></p>
+        <p class="switch-link">Don't have an account? <a href="/register.html">Register</a></p>
+      </div>
+    </div>
+
   </div>
 
   <!-- Our JavaScript file that actually talks to the server -->

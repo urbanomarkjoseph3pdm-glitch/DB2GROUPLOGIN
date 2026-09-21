@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard - MyApp</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <div class="navbar">
-    <strong>MyApp</strong>
-    <div>
-      <button id="logoutBtn" class="btn" style="padding:6px 16px;">Log out</button>
+  <div class="topbar">
+    <a href="/index.html" class="brand">MyApp</a>
+    <div class="nav-links">
+      <button id="logoutBtn" class="nav-cta" style="border:none;cursor:pointer;font-family:inherit;">Log out</button>
     </div>
   </div>
 
-  <div class="container">
-    <h1 id="welcomeMsg">Loading...</h1>
-    <p>This page is only visible to logged-in users.</p>
+  <div class="dash-wrap">
+    <div class="dash-panel">
+      <h1 id="welcomeMsg">Loading...</h1>
+      <p>This page is only visible to logged-in users.</p>
+    </div>
   </div>
 
   <script src="/js/auth.js"></script>

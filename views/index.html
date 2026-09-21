@@ -2,28 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My App</title>
-  <!-- Link to our shared CSS file (HTML and CSS stay in separate files) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyApp</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- Top navigation bar -->
-  <div class="navbar">
-    <strong>MyApp</strong>
-    <div>
-      <a href="/login.html">Login</a>
-      <a href="/register.html">Register</a>
+  <div class="topbar">
+    <a href="/index.html" class="brand">MyApp</a>
+    <div class="nav-links">
+      <a href="/login.html">Log in</a>
+      <a href="/register.html" class="nav-cta">Create account</a>
     </div>
   </div>
 
-  <!-- Main landing page content -->
-  <div class="container">
-    <h1>Welcome to MyApp 👋</h1>
-    <p>This is the landing page. Create an account or log in to see your dashboard.</p>
-    <a href="/register.html" class="btn">Get Started</a>
-    <a href="/login.html" class="btn">Login</a>
-  </div>
+  <main class="hero">
+    <div class="hero-copy">
+      <h1>Everything you keep track of, behind one login.</h1>
+      <p class="hero-sub">
+        Create an account in seconds, sign back in whenever you need to,
+        and pick up exactly where you left off.
+      </p>
+      <div class="hero-actions">
+        <a href="/register.html" class="btn btn-primary">Create your account</a>
+        <a href="/login.html" class="btn btn-ghost">I already have one</a>
+      </div>
+    </div>
+
+    <div class="ledger" aria-hidden="true">
+      <div class="ledger-row active">
+        <span class="ledger-dot"></span>
+        <span class="ledger-bar"></span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-dot"></span>
+        <span class="ledger-bar"></span>
+      </div>
+      <div class="ledger-row gold">
+        <span class="ledger-dot"></span>
+        <span class="ledger-bar"></span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-dot"></span>
+        <span class="ledger-bar"></span>
+      </div>
+      <div class="ledger-row">
+        <span class="ledger-dot"></span>
+        <span class="ledger-bar"></span>
+      </div>
+    </div>
+  </main>
 
 </body>
 </html>
