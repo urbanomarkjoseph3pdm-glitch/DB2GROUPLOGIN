@@ -1,0 +1,76 @@
+/* ============================================
+   public/css/style.css
+   Shared styles used across every page
+   (landing page, dashboard, etc.)
+   ============================================ */
+
+/* Reset some default browser spacing so pages look consistent */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* Simple top navigation bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 16px 32px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 16px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Center content in the middle of the page */
+.container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+.container p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* Reusable button style */
+.btn {
+  display: inline-block;
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 6px;
+}
+
+.btn:hover {
+  background-color: #1a242f;
+}

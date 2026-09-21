@@ -1,0 +1,19 @@
+# ============================================
+# .env.example
+# Copy this file, rename the copy to ".env",
+# and fill in your REAL values.
+# Never upload your actual .env file to GitHub!
+# ============================================
+
+# Get this from MongoDB Atlas -> Connect -> "Connect your application"
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/myapp?retryWrites=true&w=majority
+
+# Any long random string - used to sign login tokens securely.
+# Example: run this in a terminal to generate one -> node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+JWT_SECRET=replace_this_with_a_long_random_string
+
+# Render sets PORT automatically, but locally it defaults to 3000
+PORT=3000
+
+# "development" locally, Render will set NODE_ENV=production automatically
+NODE_ENV=development
