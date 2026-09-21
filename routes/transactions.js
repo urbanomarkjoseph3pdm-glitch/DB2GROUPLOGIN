@@ -5,6 +5,8 @@
 // ng quantity ng kaugnay na Product — ito ang nagpapakita ng
 // "related records" at totoong business logic (hindi lang plain CRUD).
 // Base URL: /api/transactions
+// (Protektado na ito ng "requireLogin" mula server.js, kaya sigurado
+//  na tayong naka-login ang gumagamit bago pa man umabot dito.)
 // ============================================
 
 const express = require('express');
@@ -34,12 +36,19 @@ router.post('/', async (req, res) => {
     productDoc.quantity += (type === 'stock-in') ? quantity : -quantity;
     await productDoc.save();
 
+    // FIX #2: dati "req.userId" ang ginagamit dito, pero:
+    //   (a) walang login-check na route dati kaya hindi ito nase-set, at
+    //   (b) "req.user.id" ang tamang property na ibinibigay ng requireLogin
+    //       middleware (tingnan ang middleware/auth.js), hindi "req.userId".
+    // Ngayon, dahil naka-login na (protektado na ng requireLogin sa server.js),
+    // sigurado tayong may laman ang req.user, kaya gagana na ang pag-link
+    // ng transaction papunta sa taong gumawa nito.
     const transaction = await StockTransaction.create({
       product,
       type,
       quantity,
       note,
-      performedBy: req.userId || undefined // kung naka-login, nakalink ang gumawa
+      performedBy: req.user.id
     });
 
     const populated = await transaction.populate('product', 'name sku');

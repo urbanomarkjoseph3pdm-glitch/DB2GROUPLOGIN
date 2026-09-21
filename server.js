@@ -20,6 +20,11 @@ const supplierRoutes = require('./routes/suppliers');
 const productRoutes = require('./routes/products');
 const transactionRoutes = require('./routes/transactions');
 
+// FIX #1: i-import ang "requireLogin" checkpoint para gamitin sa CRUD routes.
+// Dati, wala nito, kaya kahit sino (kahit hindi naka-login) ay pwedeng
+// gumawa/mag-edit/mag-delete ng data sa Category/Supplier/Product/Transaction.
+const requireLogin = require('./middleware/auth');
+
 // 3) Create the express app
 const app = express();
 
@@ -37,13 +42,20 @@ if (require.main === module) {
 }
 
 // 6) I-mount ang bawat set ng routes sa sarili nilang "prefix"
-app.use('/api', authRoutes);                    // /api/register, /api/login, /api/me, /api/logout
-app.use('/api/categories', categoryRoutes);      // CRUD ng Categories
-app.use('/api/suppliers', supplierRoutes);       // CRUD ng Suppliers
-app.use('/api/products', productRoutes);         // CRUD ng Products (main record)
-app.use('/api/transactions', transactionRoutes); // Stock in/out log
+// auth routes (register/login) ay DAPAT PUBLIC — kailangan silang ma-access
+// kahit hindi pa naka-login (paano ka mag-lo-login kung naka-lock na agad?)
+app.use('/api', authRoutes); // /api/register, /api/login, /api/me, /api/logout
 
-// 7) Health check
+// FIX #1 (continued): idinagdag ang "requireLogin" BAGO ang bawat CRUD router.
+// Ngayon, kailangan munang naka-login (may valid na cookie/token) bago
+// makagalaw sa Categories, Suppliers, Products, o Transactions —
+// kahit GET (view) man lang, hindi na pwede nang walang login.
+app.use('/api/categories', requireLogin, categoryRoutes);
+app.use('/api/suppliers', requireLogin, supplierRoutes);
+app.use('/api/products', requireLogin, productRoutes);
+app.use('/api/transactions', requireLogin, transactionRoutes);
+
+// 7) Health check (walang pangangailangang mag-login, para sa monitoring lang)
 app.get('/api/health', (req, res) => {
   res.json({ status: 'Server is running!' });
 });
