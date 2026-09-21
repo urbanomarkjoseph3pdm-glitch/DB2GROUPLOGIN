@@ -1,0 +1,94 @@
+/* ============================================
+   public/css/inventory.css
+   Simpleng styling lang — hindi ito grinagrade,
+   ang mahalaga ay gumagana ang CRUD.
+   ============================================ */
+
+.inv-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+}
+
+.inv-wrap h1 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 6px; }
+.inv-sub { color: var(--ink-soft); margin-bottom: 28px; }
+
+.inv-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  margin-bottom: 26px;
+}
+
+.inv-section h2 { font-size: 1.15rem; margin-bottom: 14px; }
+
+.inv-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.inv-form input, .inv-form select {
+  flex: 1 1 160px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.inv-form button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.inv-form button.btn-secondary {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+
+.inv-message {
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+.inv-message.success { color: var(--accent); }
+.inv-message.error { color: #b3432f; }
+
+.inv-table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th, td {
+  border-bottom: 1px solid var(--line);
+  padding: 8px 10px;
+  text-align: left;
+}
+
+th { color: var(--ink-soft); font-weight: 600; }
+
+table button {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-right: 4px;
+}
+
+table button.btn-danger { color: #b3432f; border-color: #b3432f; }
+
+.inv-empty { color: var(--ink-soft); font-size: 0.9rem; }
